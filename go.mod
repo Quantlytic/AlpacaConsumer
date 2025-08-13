@@ -4,6 +4,7 @@ go 1.24.5
 
 require (
 	github.com/alpacahq/alpaca-trade-api-go/v3 v3.8.1
+	github.com/confluentinc/confluent-kafka-go/v2 v2.11.0
 	github.com/joho/godotenv v1.5.1
 )
 
