@@ -14,14 +14,18 @@ type AlpacaConsumer struct {
 	Client *stream.StocksClient
 }
 
-func NewAlpacaConsumer(apiKey, secretKey, baseUrl string) (*AlpacaConsumer, error) {
-	// Debug print function inputs
-	fmt.Printf("NewAlpacaConsumer called with apiKey: %s, secretKey: %s, baseUrl: %s\n", apiKey, secretKey, baseUrl)
+type AlpacaConsumerConfig struct {
+	Stream  string
+	ApiKey  string
+	Secret  string
+	BaseURL string
+}
 
+func NewAlpacaConsumer(config AlpacaConsumerConfig) (*AlpacaConsumer, error) {
 	c := stream.NewStocksClient(
-		"test",
-		stream.WithCredentials(apiKey, secretKey),
-		stream.WithBaseURL(baseUrl),
+		config.Stream,
+		stream.WithCredentials(config.ApiKey, config.Secret),
+		stream.WithBaseURL(config.BaseURL),
 	)
 
 	// Check if the client is properly initialized

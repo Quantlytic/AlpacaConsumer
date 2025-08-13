@@ -23,8 +23,8 @@ var DefaultConfig = KafkaProducerConfig{
 func NewKafkaProducer(config KafkaProducerConfig) (*KafkaProducer, error) {
 	producer, err := kafka.NewProducer(&kafka.ConfigMap{
 		"bootstrap.servers": config.Servers,
-		"client.id":        config.ClientId,
-		"acks":             config.Acks,
+		"client.id":         config.ClientId,
+		"acks":              config.Acks,
 	})
 	if err != nil {
 		return nil, err
